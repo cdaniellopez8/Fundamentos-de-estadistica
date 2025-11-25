@@ -37,13 +37,13 @@ st.markdown(
     </p>
 
     <p>
-    👉 Al responder, recibirás <strong>explicaciones detalladas</strong> que reforzarán tu comprensión, 
+    Al responder, recibirás <strong>explicaciones detalladas</strong> que reforzarán tu comprensión, 
     junto con ejemplos visuales cuando sea apropiado.
     </p>
 
     <p>
     Al final, descubrirás datos curiosos sobre la <strong>historia de la estadística</strong> y un 
-    <strong>mapa de ruta</strong> de lo que aprenderás en tus cursos. ¡Comencemos!
+    <strong>mapa de ruta</strong> de lo que aprenderás en tus cursos. 
     </p>
 
     <p>
@@ -54,6 +54,93 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+# ---------------------
+# ROAD MAP
+# ---------------------
+st.markdown("## 🗺️ Road Map: Tu viaje por la Estadística")
+
+st.markdown("""
+### 📊 **Estadística Descriptiva (Estadística I)**
+Este es tu punto de partida. Aquí aprenderás a:
+
+- **Organizar y visualizar datos**: tablas de frecuencias, histogramas, gráficos de barras, boxplots
+- **Calcular medidas descriptivas**: 
+  - *Tendencia central*: media, mediana, moda
+  - *Dispersión*: rango, varianza, desviación estándar
+  - *Posición*: percentiles, cuartiles
+- **Entender distribuciones**: formas, simetría, valores atípicos
+- **Explorar relaciones**: correlación, tablas de contingencia
+
+**Objetivo**: Describir "¿qué pasó?" con los datos que tenemos.
+
+---
+
+### 🔬 **Estadística Inferencial (Estadística II)**
+Aquí das el salto de describir a **generalizar y predecir**. Aprenderás:
+
+- **Probabilidad**: fundamentos teóricos para entender la incertidumbre
+- **Distribuciones de probabilidad**: normal, t-Student, chi-cuadrado
+- **Estimación**: intervalos de confianza para medias, proporciones
+- **Pruebas de hipótesis**: ¿es real la diferencia o es solo azar?
+  - Pruebas t, ANOVA, chi-cuadrado, correlación
+- **Regresión**: modelar y predecir relaciones entre variables
+
+**Objetivo**: Responder "¿qué podemos concluir sobre la población?" y "¿qué pasará en el futuro?"
+
+---
+
+### 🌍 **¿Por qué es importante para TODAS las carreras?**
+
+La estadística es una **competencia transversal** esencial en el siglo XXI:
+
+#### 🏥 **Ciencias de la Salud**
+- Evaluar efectividad de tratamientos
+- Identificar factores de riesgo
+- Tomar decisiones clínicas basadas en evidencia
+
+#### 🧠 **Psicología y Ciencias Sociales**
+- Validar instrumentos de medición
+- Analizar comportamientos y actitudes
+- Diseñar y evaluar intervenciones
+
+#### 📢 **Comunicación y Marketing**
+- Medir impacto de campañas
+- Segmentar audiencias
+- Analizar tendencias en redes sociales
+
+#### ⚖️ **Derecho y Políticas Públicas**
+- Interpretar evidencia pericial
+- Evaluar políticas sociales
+- Analizar datos criminológicos
+
+#### 🎨 **Artes y Humanidades**
+- Estudios de recepción de obras
+- Análisis de tendencias culturales
+- Investigación de públicos
+
+#### 💼 **Administración y Economía**
+- Análisis de mercados
+- Pronósticos financieros
+- Control de calidad
+
+### 💡 **La estadística te permite:**
+✅ Tomar decisiones informadas basadas en datos, no en intuiciones  
+✅ Detectar patrones ocultos en información compleja  
+✅ Evaluar críticamente estudios y noticias que citan "datos"  
+✅ Comunicar hallazgos de forma clara y convincente  
+✅ Ser un profesional más competitivo en cualquier campo  
+
+---
+
+> 💬 **En resumen**: La estadística no es solo "hacer cuentas". Es una **forma de pensar** 
+> que te permite navegar en un mundo lleno de información, incertidumbre y decisiones importantes. 
+> Es el lenguaje universal de la ciencia y la toma de decisiones del siglo XXI.
+
+""")
+
+st.divider()
 
 # --- Función general de pregunta ---
 def pregunta(
@@ -532,92 +619,6 @@ administrar mejor sus territorios. Así nació la estadística como **ciencia de
 
 st.divider()
 
-# ---------------------
-# ROAD MAP
-# ---------------------
-st.markdown("## 🗺️ Road Map: Tu viaje por la Estadística")
-
-st.markdown("""
-### 📊 **Estadística Descriptiva (Estadística I)**
-Este es tu punto de partida. Aquí aprenderás a:
-
-- **Organizar y visualizar datos**: tablas de frecuencias, histogramas, gráficos de barras, boxplots
-- **Calcular medidas descriptivas**: 
-  - *Tendencia central*: media, mediana, moda
-  - *Dispersión*: rango, varianza, desviación estándar
-  - *Posición*: percentiles, cuartiles
-- **Entender distribuciones**: formas, simetría, valores atípicos
-- **Explorar relaciones**: correlación, tablas de contingencia
-
-**Objetivo**: Describir "¿qué pasó?" con los datos que tenemos.
-
----
-
-### 🔬 **Estadística Inferencial (Estadística II)**
-Aquí das el salto de describir a **generalizar y predecir**. Aprenderás:
-
-- **Probabilidad**: fundamentos teóricos para entender la incertidumbre
-- **Distribuciones de probabilidad**: normal, t-Student, chi-cuadrado
-- **Estimación**: intervalos de confianza para medias, proporciones
-- **Pruebas de hipótesis**: ¿es real la diferencia o es solo azar?
-  - Pruebas t, ANOVA, chi-cuadrado, correlación
-- **Regresión**: modelar y predecir relaciones entre variables
-
-**Objetivo**: Responder "¿qué podemos concluir sobre la población?" y "¿qué pasará en el futuro?"
-
----
-
-### 🌍 **¿Por qué es importante para TODAS las carreras?**
-
-La estadística es una **competencia transversal** esencial en el siglo XXI:
-
-#### 🏥 **Ciencias de la Salud**
-- Evaluar efectividad de tratamientos
-- Identificar factores de riesgo
-- Tomar decisiones clínicas basadas en evidencia
-
-#### 🧠 **Psicología y Ciencias Sociales**
-- Validar instrumentos de medición
-- Analizar comportamientos y actitudes
-- Diseñar y evaluar intervenciones
-
-#### 📢 **Comunicación y Marketing**
-- Medir impacto de campañas
-- Segmentar audiencias
-- Analizar tendencias en redes sociales
-
-#### ⚖️ **Derecho y Políticas Públicas**
-- Interpretar evidencia pericial
-- Evaluar políticas sociales
-- Analizar datos criminológicos
-
-#### 🎨 **Artes y Humanidades**
-- Estudios de recepción de obras
-- Análisis de tendencias culturales
-- Investigación de públicos
-
-#### 💼 **Administración y Economía**
-- Análisis de mercados
-- Pronósticos financieros
-- Control de calidad
-
-### 💡 **La estadística te permite:**
-✅ Tomar decisiones informadas basadas en datos, no en intuiciones  
-✅ Detectar patrones ocultos en información compleja  
-✅ Evaluar críticamente estudios y noticias que citan "datos"  
-✅ Comunicar hallazgos de forma clara y convincente  
-✅ Ser un profesional más competitivo en cualquier campo  
-
----
-
-> 💬 **En resumen**: La estadística no es solo "hacer cuentas". Es una **forma de pensar** 
-> que te permite navegar en un mundo lleno de información, incertidumbre y decisiones importantes. 
-> Es el lenguaje universal de la ciencia y la toma de decisiones del siglo XXI.
-
-""")
-
-st.divider()
-
 st.markdown("""
 <div style="background-color: #e8f5e9; padding: 15px; border-radius: 10px; text-align: center;">
 
@@ -638,4 +639,5 @@ st.markdown("""
 Desarrollado con 💙 para estudiantes de Uninorte<br>
 ¿Dudas o sugerencias? Escribe a <a href="mailto:carlosdl@uninorte.edu.co">carlosdl@uninorte.edu.co</a>
 </div>
+
 """, unsafe_allow_html=True)
