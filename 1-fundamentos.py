@@ -337,7 +337,7 @@ pregunta(
 # --- CASO DE ESTUDIO 1: Identificar parámetro ---
 st.markdown("---")
 st.markdown("""
-<div style="background-color: #fff3cd; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107; color: #000;">
+<div style="background-color: #fff3cd; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107; color: #424242;">
 
 ### 📋 **Caso de Estudio 1**
 
@@ -390,7 +390,7 @@ pregunta(
 # --- CASO DE ESTUDIO 2: Identificar población, muestra, parámetro y estadístico ---
 st.markdown("---")
 st.markdown("""
-<div style="background-color: #d1ecf1; padding: 20px; border-radius: 10px; border-left: 5px solid #17a2b8;">
+<div style="background-color: #d1ecf1; padding: 20px; border-radius: 10px; border-left: 5px solid #17a2b8; color: #424242;">
 
 ### 📋 **Caso de Estudio 2**
 
@@ -504,7 +504,7 @@ st.divider()
 st.markdown("## 🎓 ¿Sabías que...? Historia de la Estadística")
 
 st.markdown("""
-<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db;">
+<div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; border-left: 5px solid #3498db; color: #424242;">
 
 ### 📜 **¿Por qué se llama "Estadística"?**
 
@@ -621,7 +621,7 @@ La estadística es una **competencia transversal** esencial en el siglo XXI:
 st.divider()
 
 st.markdown("""
-<div style="background-color: #e8f5e9; padding: 15px; border-radius: 10px; text-align: center;">
+<div style="background-color: #e8f5e9; padding: 15px; border-radius: 10px; text-align: center;color: #424242;">
 
 ### 🎯 **Recuerda**
 
@@ -636,11 +636,12 @@ sino de desarrollar un **pensamiento analítico** que te acompañará toda tu vi
 
 st.markdown("---")
 st.markdown("""
-<div style="text-align: center; color: #666; font-size: 14px;">
+<div style="text-align: center; color: #666; font-size: 14px;color: #424242;">
 Desarrollado con 💙 para estudiantes de Uninorte<br>
 ¿Dudas o sugerencias? Escribe a <a href="mailto:carlosdl@uninorte.edu.co">carlosdl@uninorte.edu.co</a>
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
