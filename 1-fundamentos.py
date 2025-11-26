@@ -337,7 +337,7 @@ pregunta(
 # --- CASO DE ESTUDIO 1: Identificar parámetro ---
 st.markdown("---")
 st.markdown("""
-<div style="background-color: #fff3cd; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107;">
+<div style="background-color: #fff3cd; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107; color: #000;">
 
 ### 📋 **Caso de Estudio 1**
 
@@ -642,4 +642,5 @@ Desarrollado con 💙 para estudiantes de Uninorte<br>
 </div>
 
 """, unsafe_allow_html=True)
+
 
