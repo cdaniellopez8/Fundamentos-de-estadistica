@@ -50,13 +50,13 @@ def generar_tabla_frecuencia(data, order=None):
     else:
         frecuencia_abs = data.value_counts().sort_index()
         
-    df = pd.DataFrame({'Frecuencia Absoluta ($f_i$)': frecuencia_abs})
+    df = pd.DataFrame({'Frecuencia Absoluta': frecuencia_abs})
     N = len(data)
 
     # 1. Frecuencia Acumulada
-    df['Frecuencia Acumulada ($F_i$)'] = df['Frecuencia Absoluta ($f_i$)'].cumsum()
+    df['Frecuencia Acumulada ($F_i$)'] = df['Frecuencia Absoluta'].cumsum()
     # 2. Frecuencia Relativa
-    df['Frecuencia Relativa ($f_r$)'] = df['Frecuencia Absoluta ($f_i$)'] / N
+    df['Frecuencia Relativa ($f_r$)'] = df['Frecuencia Absoluta'] / N
     # 3. Frecuencia Relativa Acumulada
     df['Frecuencia Relativa Acumulada ($F_r$)'] = df['Frecuencia Acumulada ($F_i$)'] / N
     # 4. Porcentaje
@@ -429,7 +429,7 @@ elif page == "📊 Explorador de Datos":
         x_axis_config = {'categoryorder': 'array', 'categoryarray': data_order} if isinstance(data_order, list) else {}
 
         if chart == 'Barras':
-            fig = px.bar(tabla, x='Clase/Categoría', y='Frecuencia Absoluta ($f_i$)', 
+            fig = px.bar(tabla, x='Clase/Categoría', y='Frecuencia Absoluta', 
                          title='Gráfico de Barras (Frecuencia Absoluta)')
         elif chart == 'Pastel':
             fig = px.pie(tabla, values='Porcentaje ($\%$)', names='Clase/Categoría', 
@@ -463,7 +463,7 @@ elif page == "🔄 Comparador de Gráficos":
         # --- GRÁFICO DE BARRAS ---
         with col1:
             st.subheader("Gráfico de Barras")
-            fig = px.bar(tabla, x='Clase/Categoría', y='Frecuencia Absoluta ($f_i$)')
+            fig = px.bar(tabla, x='Clase/Categoría', y='Frecuencia Absoluta')
             if data_order is not None: fig.update_xaxes(x_axis_config)
             st.plotly_chart(fig, use_container_width=True)
             
@@ -552,7 +552,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             st.markdown("**P3:** ¿Cuál es la **Frecuencia Absoluta** ($f_i$) del nivel de satisfacción **más común** (Moda)?")
             if st.button("Mostrar P3", key="p3_ord"):
                 moda_val = data.mode().iloc[0]
-                fa = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Absoluta ($f_i$)'].iloc[0]
+                fa = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Absoluta'].iloc[0]
                 st.success(f"Respuesta: **{int(fa)}** clientes ({moda_val})")
                 # CORRECCIÓN P3: Simplificar la explicación con la variable modal
                 st.info(f"Procedimiento: La moda es '{moda_val}'. Se lee directamente su valor en la columna $f_i$: $\\mathbf{{f_i(\\text{{{moda_val}}})}} = {int(fa)}$.")
@@ -582,7 +582,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P1: Proyección de Frecuencia (Nominal)
             st.markdown("**P1:** Si la producción se escala a $300$ unidades, ¿cuántos productos del color **más popular (Moda)** se esperarían producir?")
             if st.button("Mostrar P1", key="p1_nom"):
-                moda_val = tabla.iloc[tabla['Frecuencia Absoluta ($f_i$)'].argmax()]['Clase/Categoría']
+                moda_val = tabla.iloc[tabla['Frecuencia Absoluta'].argmax()]['Clase/Categoría']
                 fr = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Relativa ($f_r$)'].iloc[0]
                 esperado = int(300 * fr)
                 st.success(f"Respuesta: **{esperado}** productos de color '{moda_val}'")
@@ -592,8 +592,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P2: Frecuencia Absoluta de Múltiples Categorías
             st.markdown("**P2:** ¿Cuántos productos, en total, **NO son 'Rojos' ni 'Azules'**?")
             if st.button("Mostrar P2", key="p2_nom"):
-                fa_rojo = tabla[tabla['Clase/Categoría']=='Rojo']['Frecuencia Absoluta ($f_i$)'].iloc[0]
-                fa_azul = tabla[tabla['Clase/Categoría']=='Azul']['Frecuencia Absoluta ($f_i$)'].iloc[0]
+                fa_rojo = tabla[tabla['Clase/Categoría']=='Rojo']['Frecuencia Absoluta'].iloc[0]
+                fa_azul = tabla[tabla['Clase/Categoría']=='Azul']['Frecuencia Absoluta'].iloc[0]
                 total = len(data)
                 respuesta = total - (fa_rojo + fa_azul)
                 st.success(f"Respuesta: **{int(respuesta)}** productos")
@@ -613,8 +613,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P4: Porcentaje de la categoría menos común
             st.markdown("**P4:** ¿Cuál es la **proporción** del color **menos frecuente**?")
             if st.button("Mostrar P4", key="p4_nom"):
-                min_val = tabla['Frecuencia Absoluta ($f_i$)'].min()
-                fr = tabla[tabla['Frecuencia Absoluta ($f_i$)']==min_val]['Frecuencia Relativa ($f_r$)'].iloc[0]
+                min_val = tabla['Frecuencia Absoluta'].min()
+                fr = tabla[tabla['Frecuencia Absoluta']==min_val]['Frecuencia Relativa ($f_r$)'].iloc[0]
                 st.success(f"Respuesta: **{fr:.4f}**")
                 # CORRECCIÓN P4: Usar la fórmula de fr con el valor dinámico
                 st.info(f"Procedimiento: Se identifica la Frecuencia Absoluta mínima ($f_i = {min_val}$) y se lee su correspondiente $f_r$: $\\mathbf{{f_r}} = {fr:.4f}$.")
@@ -622,8 +622,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P5: Frecuencia de la categoría más común
             st.markdown("**P5:** ¿Cuántas veces más es la $f_i$ del color más popular comparado con el color menos popular?")
             if st.button("Mostrar P5", key="p5_nom"):
-                fa_max = tabla['Frecuencia Absoluta ($f_i$)'].max()
-                fa_min = tabla['Frecuencia Absoluta ($f_i$)'].min()
+                fa_max = tabla['Frecuencia Absoluta'].max()
+                fa_min = tabla['Frecuencia Absoluta'].min()
                 ratio = fa_max / fa_min
                 st.success(f"Respuesta: **{ratio:.2f} veces**")
                 # CORRECCIÓN P5: Usar la división de fi con valores dinámicos
@@ -655,7 +655,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             st.markdown("**P3:** ¿Cuál es el número de familias que tiene **el número de hijos más frecuente (Moda)**?")
             if st.button("Mostrar P3", key="p3_disc"):
                 moda_val = data.mode().iloc[0]
-                val = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Absoluta ($f_i$)'].iloc[0]
+                val = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Absoluta'].iloc[0]
                 st.success(f"Respuesta: **{int(val)}** familias con {int(moda_val)} hijos.")
                 # CORRECCIÓN P3: Usar valor dinámico en la explicación
                 st.info(f"Procedimiento: La moda es **{int(moda_val)}** hijos. Se lee el valor $\\mathbf{{f_i}}$ correspondiente: $f_i(\\text{{Moda}}) = f_i({int(moda_val)}) = {int(val)}$.")
@@ -663,8 +663,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P4: Porcentaje de la categoría menos común
             st.markdown("**P4:** ¿Qué porcentaje de familias tiene **el número de hijos menos frecuente**?")
             if st.button("Mostrar P4", key="p4_disc"):
-                min_fa = tabla['Frecuencia Absoluta ($f_i$)'].min()
-                porc = tabla[tabla['Frecuencia Absoluta ($f_i$)']==min_fa]['Porcentaje ($\%$)'].iloc[0]
+                min_fa = tabla['Frecuencia Absoluta'].min()
+                porc = tabla[tabla['Frecuencia Absoluta']==min_fa]['Porcentaje ($\%$)'].iloc[0]
                 st.success(f"Respuesta: **{porc:.2f}%**")
                 # CORRECCIÓN P4: Usar valor dinámico en la explicación
                 st.info(f"Procedimiento: Se encuentra la Frecuencia Absoluta mínima ($f_i = {int(min_fa)}$) y se lee su porcentaje asociado: $\\mathbf{{\\%}} = {porc:.2f}\\%$.")
@@ -765,7 +765,7 @@ elif page == "🎲 Generador de Ejercicios y Validación":
                 correcto = True
                 st.markdown("---")
                 for cat in tabla_correcta.index:
-                    esperado = tabla_correcta.loc[cat, 'Frecuencia Absoluta ($f_i$)']
+                    esperado = tabla_correcta.loc[cat, 'Frecuencia Absoluta']
                     user_val = user_inputs[str(cat)]
                     if user_val == esperado:
                         st.success(f"✅ **{cat}**: Correcto ($f_i = {esperado}$)")
@@ -831,4 +831,5 @@ elif page == "❓ Cuestionario":
                     st.error(f"❌ Incorrecto. {p['retro']}")
 
 st.markdown("---")
+
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
