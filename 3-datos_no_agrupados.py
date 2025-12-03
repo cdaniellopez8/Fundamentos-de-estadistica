@@ -54,13 +54,13 @@ def generar_tabla_frecuencia(data, order=None):
     N = len(data)
 
     # 1. Frecuencia Acumulada
-    df['Frecuencia Acumulada ($F_i$)'] = df['Frecuencia Absoluta'].cumsum()
+    df['Frecuencia Acumulada'] = df['Frecuencia Absoluta'].cumsum()
     # 2. Frecuencia Relativa
-    df['Frecuencia Relativa ($f_r$)'] = df['Frecuencia Absoluta'] / N
+    df['Frecuencia Relativa'] = df['Frecuencia Absoluta'] / N
     # 3. Frecuencia Relativa Acumulada
-    df['Frecuencia Relativa Acumulada ($F_r$)'] = df['Frecuencia Acumulada ($F_i$)'] / N
+    df['Frecuencia Relativa Acumulada'] = df['Frecuencia Acumulada'] / N
     # 4. Porcentaje
-    df['Porcentaje ($\%$)'] = df['Frecuencia Relativa ($f_r$)'] * 100
+    df['Porcentaje (%)'] = df['Frecuencia Relativa'] * 100
     
     df = df.reset_index()
     df = df.rename(columns={df.columns[0]: 'Clase/Categoría'})
@@ -432,10 +432,10 @@ elif page == "📊 Explorador de Datos":
             fig = px.bar(tabla, x='Clase/Categoría', y='Frecuencia Absoluta', 
                          title='Gráfico de Barras (Frecuencia Absoluta)')
         elif chart == 'Pastel':
-            fig = px.pie(tabla, values='Porcentaje ($\%$)', names='Clase/Categoría', 
+            fig = px.pie(tabla, values='Porcentaje (%)', names='Clase/Categoría', 
                          title='Gráfico de Pastel (Distribución Porcentual)')
         else: # Ojiva
-            fig = px.line(tabla, x='Clase/Categoría', y='Frecuencia Relativa Acumulada ($F_r$)', 
+            fig = px.line(tabla, x='Clase/Categoría', y='Frecuencia Relativa Acumulada', 
                          title='Ojiva (Frecuencia Relativa Acumulada)', markers=True)
         
         # Aplicar orden si no es pastel
@@ -477,7 +477,7 @@ elif page == "🔄 Comparador de Gráficos":
         # --- GRÁFICO DE PASTEL ---
         with col2:
             st.subheader("Gráfico de Pastel")
-            fig = px.pie(tabla, values='Porcentaje ($\%$)', names='Clase/Categoría')
+            fig = px.pie(tabla, values='Porcentaje (%)', names='Clase/Categoría')
             st.plotly_chart(fig, use_container_width=True)
             
             # Lógica de Mensajes para Pastel
@@ -497,7 +497,7 @@ elif page == "🔄 Comparador de Gráficos":
         # --- OJIVA (ACUMULADA) ---
         with col3:
             st.subheader("Ojiva (Frecuencia Acumulada)")
-            fig = px.line(tabla, x='Clase/Categoría', y='Frecuencia Relativa Acumulada ($F_r$)', markers=True)
+            fig = px.line(tabla, x='Clase/Categoría', y='Frecuencia Relativa Acumulada', markers=True)
             if data_order is not None: fig.update_xaxes(x_axis_config)
             st.plotly_chart(fig, use_container_width=True)
             
@@ -533,7 +533,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P1: Acumulada (Satisfecho o menos)
             st.markdown("**P1:** ¿Qué **porcentaje** de clientes está **Satisfecho o inferior**?")
             if st.button("Mostrar P1", key="p1_ord"):
-                val = tabla[tabla['Clase/Categoría']=='Satisfecho']['Frecuencia Relativa Acumulada ($F_r$)'].iloc[0]
+                val = tabla[tabla['Clase/Categoría']=='Satisfecho']['Frecuencia Relativa Acumulada'].iloc[0]
                 st.success(f"Respuesta: **{val*100:.2f}%**")
                 # CORRECCIÓN P1: Usar valor dinámico en la fórmula
                 st.info(f"Procedimiento: Se lee la columna $\\mathbf{{F_r}}$ para la categoría 'Satisfecho' y se multiplica por 100. $F_r(\\text{{Satisfecho}}) = {val:.4f}$, entonces $\\text{{Porcentaje}} = {val:.4f} \\times 100 = {val*100:.2f}\\%$.")
@@ -541,7 +541,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P2: Absoluta Inversa (Superior a)
             st.markdown("**P2:** ¿Cuántos clientes están en un nivel de satisfacción **superior a Neutral**?")
             if st.button("Mostrar P2", key="p2_ord"):
-                fa_hasta_neutral = tabla[tabla['Clase/Categoría']=='Neutral']['Frecuencia Acumulada ($F_i$)'].iloc[0]
+                fa_hasta_neutral = tabla[tabla['Clase/Categoría']=='Neutral']['Frecuencia Acumulada'].iloc[0]
                 total = len(data)
                 respuesta = total - fa_hasta_neutral
                 st.success(f"Respuesta: **{int(respuesta)}** clientes")
@@ -560,8 +560,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P4: Acumulada de rango
             st.markdown("**P4:** ¿Qué proporción de clientes está **Insatisfecho o Muy Insatisfecho**?")
             if st.button("Mostrar P4", key="p4_ord"):
-                fr_ins = tabla[tabla['Clase/Categoría']=='Insatisfecho']['Frecuencia Relativa ($f_r$)'].iloc[0]
-                fr_muyns = tabla[tabla['Clase/Categoría']=='Muy Insatisfecho']['Frecuencia Relativa ($f_r$)'].iloc[0]
+                fr_ins = tabla[tabla['Clase/Categoría']=='Insatisfecho']['Frecuencia Relativa'].iloc[0]
+                fr_muyns = tabla[tabla['Clase/Categoría']=='Muy Insatisfecho']['Frecuencia Relativa'].iloc[0]
                 proporcion = fr_ins + fr_muyns
                 st.success(f"Respuesta: **{proporcion:.4f}**")
                 # CORRECCIÓN P4: Usar la suma de fr y valores dinámicos
@@ -570,7 +570,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P5: Porcentaje de Rango Inverso
             st.markdown("**P5:** ¿Qué porcentaje de clientes está **Muy Satisfecho**?")
             if st.button("Mostrar P5", key="p5_ord"):
-                porc = tabla[tabla['Clase/Categoría']=='Muy Satisfecho']['Porcentaje ($\%$)'].iloc[0]
+                porc = tabla[tabla['Clase/Categoría']=='Muy Satisfecho']['Porcentaje (%)'].iloc[0]
                 st.success(f"Respuesta: **{porc:.2f}%**")
                 # CORRECCIÓN P5: Usar el valor dinámico en la explicación
                 st.info(f"Procedimiento: Lectura directa de la columna Porcentaje ($\\%$) para 'Muy Satisfecho': $\\mathbf{{\\%(\\text{{Muy Satisfecho}})}} = {porc:.2f}\\%$.")
@@ -583,7 +583,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             st.markdown("**P1:** Si la producción se escala a $300$ unidades, ¿cuántos productos del color **más popular (Moda)** se esperarían producir?")
             if st.button("Mostrar P1", key="p1_nom"):
                 moda_val = tabla.iloc[tabla['Frecuencia Absoluta'].argmax()]['Clase/Categoría']
-                fr = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Relativa ($f_r$)'].iloc[0]
+                fr = tabla[tabla['Clase/Categoría']==moda_val]['Frecuencia Relativa'].iloc[0]
                 esperado = int(300 * fr)
                 st.success(f"Respuesta: **{esperado}** productos de color '{moda_val}'")
                 # CORRECCIÓN P1: Usar valor dinámico en la fórmula
@@ -603,8 +603,8 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P3: Porcentaje de Múltiples Categorías
             st.markdown("**P3:** ¿Cuál es el **porcentaje combinado** de productos 'Verdes' y 'Amarillos'?")
             if st.button("Mostrar P3", key="p3_nom"):
-                porc_ver = tabla[tabla['Clase/Categoría']=='Verde']['Porcentaje ($\%$)'].iloc[0]
-                porc_ama = tabla[tabla['Clase/Categoría']=='Amarillo']['Porcentaje ($\%$)'].iloc[0]
+                porc_ver = tabla[tabla['Clase/Categoría']=='Verde']['Porcentaje (%)'].iloc[0]
+                porc_ama = tabla[tabla['Clase/Categoría']=='Amarillo']['Porcentaje (%)'].iloc[0]
                 total_porc = porc_ver + porc_ama
                 st.success(f"Respuesta: **{total_porc:.2f}%**")
                 # CORRECCIÓN P3: Usar la suma de porcentajes con valores dinámicos
@@ -614,7 +614,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             st.markdown("**P4:** ¿Cuál es la **proporción** del color **menos frecuente**?")
             if st.button("Mostrar P4", key="p4_nom"):
                 min_val = tabla['Frecuencia Absoluta'].min()
-                fr = tabla[tabla['Frecuencia Absoluta']==min_val]['Frecuencia Relativa ($f_r$)'].iloc[0]
+                fr = tabla[tabla['Frecuencia Absoluta']==min_val]['Frecuencia Relativa'].iloc[0]
                 st.success(f"Respuesta: **{fr:.4f}**")
                 # CORRECCIÓN P4: Usar la fórmula de fr con el valor dinámico
                 st.info(f"Procedimiento: Se identifica la Frecuencia Absoluta mínima ($f_i = {min_val}$) y se lee su correspondiente $f_r$: $\\mathbf{{f_r}} = {fr:.4f}$.")
@@ -636,7 +636,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P1: Acumulada
             st.markdown("**P1:** ¿Qué porcentaje de familias tiene **2 hijos o menos**?")
             if st.button("Mostrar P1", key="p1_disc"):
-                val = tabla[tabla['Clase/Categoría']==2]['Frecuencia Relativa Acumulada ($F_r$)'].iloc[0]
+                val = tabla[tabla['Clase/Categoría']==2]['Frecuencia Relativa Acumulada'].iloc[0]
                 st.success(f"Respuesta: **{val*100:.2f}%**")
                 # CORRECCIÓN P1: Usar valor dinámico en la fórmula
                 st.info(f"Procedimiento: Lectura de la $\\mathbf{{F_r}}$ para el valor '2' y multiplicación por 100: $F_r(2) \\times 100 = {val:.4f} \\times 100 = {val*100:.2f}\\%$.")
@@ -644,7 +644,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P2: Absoluta de rango
             st.markdown("**P2:** ¿Cuántas familias tienen **más de 3 hijos**?")
             if st.button("Mostrar P2", key="p2_disc"):
-                fa_hasta_3 = tabla[tabla['Clase/Categoría']==3]['Frecuencia Acumulada ($F_i$)'].iloc[0]
+                fa_hasta_3 = tabla[tabla['Clase/Categoría']==3]['Frecuencia Acumulada'].iloc[0]
                 total = len(data)
                 respuesta = total - fa_hasta_3
                 st.success(f"Respuesta: **{int(respuesta)}** familias")
@@ -664,7 +664,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             st.markdown("**P4:** ¿Qué porcentaje de familias tiene **el número de hijos menos frecuente**?")
             if st.button("Mostrar P4", key="p4_disc"):
                 min_fa = tabla['Frecuencia Absoluta'].min()
-                porc = tabla[tabla['Frecuencia Absoluta']==min_fa]['Porcentaje ($\%$)'].iloc[0]
+                porc = tabla[tabla['Frecuencia Absoluta']==min_fa]['Porcentaje (%)'].iloc[0]
                 st.success(f"Respuesta: **{porc:.2f}%**")
                 # CORRECCIÓN P4: Usar valor dinámico en la explicación
                 st.info(f"Procedimiento: Se encuentra la Frecuencia Absoluta mínima ($f_i = {int(min_fa)}$) y se lee su porcentaje asociado: $\\mathbf{{\\%}} = {porc:.2f}\\%$.")
@@ -672,7 +672,7 @@ elif page == "📈 Casos Reales (Análisis Guiado)":
             # P5: Proporción de Rango (0, 1 o 2 hijos)
             st.markdown("**P5:** ¿Cuál es la proporción de familias que tiene **2 hijos o menos**?")
             if st.button("Mostrar P5", key="p5_disc"):
-                fr_2 = tabla[tabla['Clase/Categoría']==2]['Frecuencia Relativa Acumulada ($F_r$)'].iloc[0]
+                fr_2 = tabla[tabla['Clase/Categoría']==2]['Frecuencia Relativa Acumulada'].iloc[0]
                 st.success(f"Respuesta: **{fr_2:.4f}**")
                 # CORRECCIÓN P5: Usar valor dinámico en la fórmula
                 st.info(f"Procedimiento: Lectura directa de la $\\mathbf{{F_r}}$ para 2 hijos: $F_r(2) = {fr_2:.4f}$.")
@@ -833,3 +833,4 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
