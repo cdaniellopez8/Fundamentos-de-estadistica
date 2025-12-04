@@ -163,21 +163,21 @@ dataset_keys = list(datasets.keys())
 
 st.sidebar.title("📚 Menú de Contenido")
 page = st.sidebar.radio("Navegar a:", [
-    "🏠 1. INICIO",
-    "💯 2. COMPARACIÓN: ¿Agrupar o No?",
-    "📚 3. CONCEPTOS FUNDAMENTALES",
-    "🔨 4. CONSTRUCTOR DE TABLAS", 
-    "📊 5. EXPLORADOR DE DATOS AGRUPADOS",
-    "🔄 6. COMPARADOR DE GRÁFICOS",
-    "📈 7. CASOS REALES - Análisis Guiado",
-    "❓ 8. CUESTIONARIO FINAL",
-    "🎯 9. SECCIÓN EXTRA: Ventajas y Desventajas",
+    "1. Inicio",
+    "2. Comparación: ¿Agrupar o No?",
+    "3. Conceptos Fundamentales",
+    "4. Constructor de Tablas", 
+    "5. Explorador de Datos Agrupados",
+    "6. Comparador de Gráficos",
+    "7. Casos Reales - Análisis Guiado",
+    "8. Cuestionario Final",
+    "9. Ventajas y Desventajas",
 ], index=0)
 
 # --- EJECUCIÓN DEL MÓDULO SELECCIONADO ---
 
 
-if page == "🏠 1. INICIO":
+if page == "1. Inicio":
     st.title("📊 Análisis Estadístico para Datos Agrupados")
     
     ## ¿Qué son Datos Agrupados y por qué existen?
@@ -218,7 +218,7 @@ if page == "🏠 1. INICIO":
     2.  Trabajas con **Variables Discretas u Ordinales con muchos valores únicos** (ej. calificaciones de 0 a 100, donde la tabla no agrupada es inútil).
     """)
     
-elif page == "📚 3. CONCEPTOS FUNDAMENTALES":
+elif page == "3. Conceptos Fundamentales":
     st.title("📚 Conceptos Fundamentales de Datos Agrupados")
     
     st.markdown("""
@@ -259,7 +259,7 @@ elif page == "📚 3. CONCEPTOS FUNDAMENTALES":
     """)
 
 
-elif page == "🔨 4. CONSTRUCTOR DE TABLAS":
+elif page == "4. Constructor de Tablas":
 
     st.title("🔨 Constructor de Tablas Agrupadas (Paso a Paso)")
     st.markdown("Aprende la metodología estadística para construir una tabla de frecuencias agrupada de manera formal.")
@@ -702,7 +702,7 @@ Como ya es IMPAR, lo mantenemos (redondeamos HACIA ABAJO): $\\mathbf{{{k_final_s
 
     st.success("✅ ¡Tabla de frecuencias agrupada construida exitosamente!")
 
-elif page == "💯 2. COMPARACIÓN: ¿Agrupar o No?":
+elif page == "2. Comparación: ¿Agrupar o No?":
     st.title("💯 Comparación: ¿Debo Agrupar?")
     st.markdown("Pon a prueba tu conocimiento sobre cuándo es estadísticamente necesario agrupar datos.")
     
@@ -733,7 +733,7 @@ elif page == "💯 2. COMPARACIÓN: ¿Agrupar o No?":
                     st.error(f"❌ Incorrecto. La respuesta correcta es **{answer}**.")
                 st.info(f"**Razón:** {reason}")
 
-elif page == "📊 5. EXPLORADOR DE DATOS AGRUPADOS":
+elif page == "5. Explorador de Datos Agrupados":
     st.title("📊 Explorador de Datos Agrupados")
     st.markdown("Visualiza cómo la elección del número de intervalos afecta la tabla de frecuencia y el histograma.")
 
@@ -804,7 +804,7 @@ elif page == "📊 5. EXPLORADOR DE DATOS AGRUPADOS":
         st.plotly_chart(fig, use_container_width=True)
 
 
-elif page == "🔄 6. COMPARADOR DE GRÁFICOS":
+elif page == "6. Comparador de Gráficos":
     st.title("🔄 Comparador de Gráficos para Datos Agrupados")
     st.markdown("Comprende qué gráficos son apropiados y por qué no deben usarse los gráficos de datos no agrupados.")
     
@@ -869,7 +869,7 @@ elif page == "🔄 6. COMPARADOR DE GRÁFICOS":
         st.info("💡 **Clave:** Siempre va ascendiendo, mostrando la proporción de datos **menores o iguales** al límite superior de cada clase.")
 
 
-elif page == "📈 7. CASOS REALES - Análisis Guiado":
+elif page == "7. Casos Reales - Análisis Guiado":
     st.title("📈 Casos Reales: Análisis Guiado de Tablas Agrupadas")
     st.markdown("Aplica la interpretación de las frecuencias, marcas de clase y límites a preguntas prácticas.")
     
@@ -1077,7 +1077,7 @@ elif page == "📈 7. CASOS REALES - Análisis Guiado":
             st.warning("Este dataset tiene menos de 5 intervalos. No se puede calcular el valor superior al 4to intervalo.")
 
 
-elif page == "❓ 8. CUESTIONARIO FINAL":
+elif page == "8. Cuestionario Final":
     st.title("❓ Cuestionario Final: Evaluación de Conceptos")
     st.markdown("Evalúa tu comprensión sobre la agrupación de datos, sus conceptos y gráficos.")
     
@@ -1196,7 +1196,7 @@ elif page == "❓ 8. CUESTIONARIO FINAL":
             st.session_state.quiz_agrupados_submitted = False
             st.rerun()
 
-elif page == "🎯 9. SECCIÓN EXTRA: Ventajas y Desventajas":
+elif page == "9. Ventajas y Desventajas":
     st.title("🎯 Ventajas y Desventajas de la Agrupación")
     st.markdown("Comprende la compensación clave al agrupar datos: la manejabilidad frente a la pérdida de detalle.")
     
@@ -1316,4 +1316,5 @@ elif page == "🎯 9. SECCIÓN EXTRA: Ventajas y Desventajas":
         st.success("✅ El histograma revela claramente la distribución y concentración de datos.")
 
 st.markdown("---")
+
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
