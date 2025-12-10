@@ -267,7 +267,7 @@ elif page == "💯 Porcentajes":
     - Esto significa que 0.75 partes del total aprobaron (o 3 de cada 4 estudiantes)
     """)
     
-    st.markdown("###¿Qué es un Porcentaje? %")
+    st.markdown("### ¿Qué es un Porcentaje? %")
     st.markdown("""
     Un **porcentaje** es una forma especial de expresar una proporción, usando como referencia **100 partes**.
     La palabra "porcentaje" significa literalmente "por cada cien".
@@ -864,6 +864,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
