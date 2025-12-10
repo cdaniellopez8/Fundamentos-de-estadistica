@@ -260,7 +260,7 @@ elif page == "💯 Porcentajes":
     st.markdown("- ### ¿Qué es una Proporción?")
     st.markdown("""
     Una **proporción** es una relación o comparación entre dos cantidades. Nos indica **qué fracción** 
-    representa una parte con respecto al total. Se expresa como un número decimal entre 0 y 1.
+    representa una parte con respecto al total. Se expresa como un número positivo mayor o igual que 0.
     """)
     
     st.markdown("- ### ¿Qué es un Porcentaje?")
@@ -890,6 +890,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
