@@ -261,13 +261,9 @@ elif page == "💯 Porcentajes":
     st.markdown("""
     Una **proporción** es una relación o comparación entre dos cantidades. Nos indica **qué fracción** 
     representa una parte con respecto al total. Se expresa como un número decimal entre 0 y 1.
-    
-    **Ejemplo:** Si de 60 estudiantes, 45 aprobaron, la proporción es:
-    - 45 dividido entre 60 = 0.75
-    - Esto significa que 0.75 partes del total aprobaron (o 3 de cada 4 estudiantes)
     """)
     
-    st.markdown("### ¿Qué es un Porcentaje? %")
+    st.markdown("### ¿Qué es un Porcentaje?")
     st.markdown("""
     Un **porcentaje** es una forma especial de expresar una proporción, usando como referencia **100 partes**.
     La palabra "porcentaje" significa literalmente "por cada cien".
@@ -276,14 +272,11 @@ elif page == "💯 Porcentajes":
     - Son más fáciles de entender y comparar que las proporciones decimales
     - El símbolo % significa "de cada 100"
     - 75% significa "75 de cada 100" o "75 partes de un total de 100"
-    
-    **Conversión:** Para convertir una proporción a porcentaje, simplemente multiplicamos por 100.
-    - Proporción: 0.75 → Porcentaje: 0.75 × 100 = 75%
     """)
     
     st.markdown("---")
         
-    st.markdown("### Fórmulas Básicas")
+    st.markdown("### 📝 Fórmulas Básicas")
     col1, col2 = st.columns(2)
     with col1:
         st.latex(r"\text{Proporción} = \frac{\text{Parte}}{\text{Total}}")
@@ -864,6 +857,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
