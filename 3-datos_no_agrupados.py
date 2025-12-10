@@ -261,10 +261,6 @@ elif page == "💯 Porcentajes":
     st.markdown("""
     Una **proporción** es una relación o comparación entre dos cantidades. Nos indica **qué fracción** 
     representa una parte con respecto al total. Se expresa como un número decimal entre 0 y 1.
-    
-    **Ejemplo:** Si de 60 estudiantes, 45 aprobaron, la proporción es:
-    - 45 dividido entre 60 = 0.75
-    - Esto significa que 0.75 partes del total aprobaron (o 3 de cada 4 estudiantes)
     """)
     
     st.markdown("- ### ¿Qué es un Porcentaje?")
@@ -276,21 +272,41 @@ elif page == "💯 Porcentajes":
     - Son más fáciles de entender y comparar que las proporciones decimales
     - El símbolo % significa "de cada 100"
     - 75% significa "75 de cada 100" o "75 partes de un total de 100"
-    
-    **Conversión:** Para convertir una proporción a porcentaje, simplemente multiplicamos por 100.
-    - Proporción: 0.75 → Porcentaje: 0.75 × 100 = 75%
     """)
     
     st.markdown("---")
-        
+    
     st.markdown("### 📝 Fórmulas Básicas")
+    
+    # Fórmula general
+    st.markdown("#### Fórmula General:")
     col1, col2 = st.columns(2)
     with col1:
         st.latex(r"\text{Proporción} = \frac{\text{Cantidad A}}{\text{Cantidad B}}")
-        st.caption("Resultado: puede ser cualquier número positivo")
+        st.caption("Compara dos cantidades cualesquiera")
     with col2:
         st.latex(r"\text{Porcentaje} = \text{Proporción} \times 100")
-        st.caption("Resultado: puede ser < 100%, = 100%, o > 100%")
+        st.caption("Expresa la proporción en base 100")
+    
+    st.markdown("")
+    
+    # Caso especial: Parte/Total
+    st.markdown("#### Caso Especial - Parte de un Todo:")
+    st.info("""
+    Cuando queremos saber **qué porción representa una parte del total**, usamos:
+    """)
+    
+    col3, col4 = st.columns(2)
+    with col3:
+        st.latex(r"\text{Proporción} = \frac{\text{Parte}}{\text{Total}}")
+        st.caption("Resultado: siempre entre 0 y 1")
+        st.markdown("**Ejemplo:** 45 de 60 → 45/60 = 0.75")
+    with col4:
+        st.latex(r"\text{Porcentaje} = \frac{\text{Parte}}{\text{Total}} \times 100")
+        st.caption("Resultado: siempre entre 0% y 100%")
+        st.markdown("**Ejemplo:** 0.75 × 100 = 75%")
+    
+    st.warning("⚠️ **Importante:** El caso Parte/Total es solo UNA forma de usar proporciones. También podemos comparar cantidades independientes donde el resultado puede ser > 1 o > 100%")
         
     st.markdown("---")
     
@@ -874,6 +890,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
