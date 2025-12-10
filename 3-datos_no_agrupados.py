@@ -255,13 +255,42 @@ if page == "🏠 Inicio":
 # ----------------------------------------------------------------------
 elif page == "💯 Porcentajes":
     st.header("💯 Fundamentos: Cálculo de Porcentajes")
+    
+    # Explicaciones conceptuales
+    st.markdown("### 🎯 ¿Qué es una Proporción?")
+    st.markdown("""
+    Una **proporción** es una relación o comparación entre dos cantidades. Nos indica **qué fracción** 
+    representa una parte con respecto al total. Se expresa como un número decimal entre 0 y 1.
+    
+    **Ejemplo:** Si de 60 estudiantes, 45 aprobaron, la proporción es:
+    - 45 dividido entre 60 = 0.75
+    - Esto significa que 0.75 partes del total aprobaron (o 3 de cada 4 estudiantes)
+    """)
+    
+    st.markdown("### 📊 ¿Qué es un Porcentaje?")
+    st.markdown("""
+    Un **porcentaje** es una forma especial de expresar una proporción, usando como referencia **100 partes**.
+    La palabra "porcentaje" significa literalmente "por cada cien".
+    
+    **¿Por qué usar porcentajes?**
+    - Son más fáciles de entender y comparar que las proporciones decimales
+    - El símbolo % significa "de cada 100"
+    - 75% significa "75 de cada 100" o "75 partes de un total de 100"
+    
+    **Conversión:** Para convertir una proporción a porcentaje, simplemente multiplicamos por 100.
+    - Proporción: 0.75 → Porcentaje: 0.75 × 100 = 75%
+    """)
+    
+    st.markdown("---")
         
     st.markdown("### 📝 Fórmulas Básicas")
     col1, col2 = st.columns(2)
     with col1:
         st.latex(r"\text{Proporción} = \frac{\text{Parte}}{\text{Total}}")
+        st.caption("Resultado: número decimal (0 a 1)")
     with col2:
         st.latex(r"\text{Porcentaje} = \text{Proporción} \times 100")
+        st.caption("Resultado: número con símbolo % (0% a 100%)")
         
     st.markdown("---")
     
@@ -272,10 +301,12 @@ elif page == "💯 Porcentajes":
         with col1:
             st.markdown("**Proporción:**")
             st.latex(r"\frac{45}{60} = 0.75")
+            st.caption("0.75 del total aprobó")
         with col2:
             st.markdown("**Porcentaje:**")
             st.latex(r"0.75 \times 100 = 75\%")
-        st.success("✅ El 75% aprobó")
+            st.caption("75 de cada 100 aprobaron")
+        st.success("✅ El 75% aprobó (3 de cada 4 estudiantes)")
         
     # Ejemplo 2
     with st.expander("**Ejemplo 2: Ventas de Productos**"):
@@ -318,7 +349,7 @@ elif page == "💯 Porcentajes":
         st.success("✅ 70 empleados")
 
     # Ejemplo 6 (Descuento/Disminución)
-    with st.expander("**Ejemplo 5: Descuento (Disminución Porcentual)**", expanded=True):
+    with st.expander("**Ejemplo 6: Descuento (Disminución Porcentual)**"):
         st.markdown("**Situación:** Una tienda ofrece un descuento del **15%** en un artículo de **\$80.000**.")
         st.markdown("**¿Cuál es el valor final a pagar?**")
         
@@ -329,7 +360,7 @@ elif page == "💯 Porcentajes":
         st.success("✅ El valor final es **\$68.000**")
         
     # Ejemplo 7 (Aumento/Incremento)
-    with st.expander("**Ejemplo 6: Aumento (Incremento Porcentual)**", expanded=True):
+    with st.expander("**Ejemplo 7: Aumento (Incremento Porcentual)**"):
         st.markdown("**Situación:** Una acción tiene un valor de **\$5.000** y su rendimiento **aumentó** en un **20%**.")
         st.markdown("**¿Cuál es el nuevo valor de la acción?**")
         
@@ -833,4 +864,5 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
