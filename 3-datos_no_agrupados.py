@@ -283,7 +283,7 @@ elif page == "💯 Porcentajes":
     col1, col2 = st.columns(2)
     with col1:
         st.latex(r"\text{Proporción} = \frac{\text{Cantidad A}}{\text{Cantidad B}}")
-        st.caption("Compara dos cantidades cualesquiera")
+        st.caption("Podemos obtener un numero positivo cualquiera")
     with col2:
         st.latex(r"\text{Porcentaje} = \text{Proporción} \times 100")
         st.caption("Expresa la proporción en base 100")
@@ -890,6 +890,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
