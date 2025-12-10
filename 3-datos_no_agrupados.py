@@ -257,13 +257,13 @@ elif page == "💯 Porcentajes":
     st.header("💯 Fundamentos: Cálculo de Porcentajes")
     
     # Explicaciones conceptuales
-    st.markdown("### ¿Qué es una Proporción?")
+    st.markdown("- ### ¿Qué es una Proporción?")
     st.markdown("""
     Una **proporción** es una relación o comparación entre dos cantidades. Nos indica **qué fracción** 
     representa una parte con respecto al total. Se expresa como un número decimal entre 0 y 1.
     """)
     
-    st.markdown("### ¿Qué es un Porcentaje?")
+    st.markdown("- ### ¿Qué es un Porcentaje?")
     st.markdown("""
     Un **porcentaje** es una forma especial de expresar una proporción, usando como referencia **100 partes**.
     La palabra "porcentaje" significa literalmente "por cada cien".
@@ -857,6 +857,7 @@ elif page == "❓ Cuestionario":
 st.markdown("---")
 
 st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+
 
 
 
