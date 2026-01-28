@@ -303,13 +303,13 @@ pregunta(
 pregunta(
     "4️⃣ ¿Qué es un parámetro en estadística?",
     [
-        "Una medida cualquiera calculada en una muestra",
-        "Una medida cualquiera calculada en la población completa",
+        "Un cálculo cualquiera realizado en una muestra",
+        "Un cálculo cualquiera realizado en la población completa",
         "Un tipo de variable a la hora de estudiar estadística",
         "Un método estadístico para llegar a conclusiones verdaderas"
     ],
-    "Una medida cualquiera calculada en la población completa",
-    """¡Perfecto! Un **parámetro** es una medida que describe una característica de la **población completa**. 
+    "Un cálculo cualquiera realizado en la población completa",
+    """¡Perfecto! Un **parámetro** es un cálculo que describe una característica de la **población completa**. 
     Se denota con letras griegas: **μ** (mu) para la media poblacional, **σ** (sigma) para la desviación estándar poblacional, 
     **π** (pi) para la proporción poblacional. Generalmente **no conocemos los parámetros** (son desconocidos) y los estimamos 
     mediante estadísticos de muestras.""",
@@ -320,13 +320,13 @@ pregunta(
 pregunta(
     "5️⃣ ¿Qué es un estadístico?",
     [
-        "Una medida cualquiera calculada en la población completa",
-        "Una medida descriptiva calculada a partir de una muestra",
+        "Un cálculo cualquiera realizado a la población completa",
+        "Un cálculo cualquiera realizado a la muestra",
         "Los datos que obtengo en un muestreo para ser analizados",
         "Un tipo de gráfico utilizado en la estadística"
     ],
-    "Una medida descriptiva calculada a partir de una muestra",
-    """¡Excelente! Un **estadístico** es una medida calculada a partir de los datos de una **muestra**. 
+    "Un cálculo cualquiera realizado a la muestra",
+    """¡Excelente! Un **estadístico** es un cálculo realizao a partir de los datos de una **muestra**. 
     Se denota con letras latinas: **x̄** (equis barra) para la media muestral, **s** para la desviación estándar muestral, 
     **p** para la proporción muestral. Los estadísticos son **valores conocidos** que calculamos y usamos para **estimar** 
     los parámetros poblacionales desconocidos.""",
@@ -642,6 +642,7 @@ Desarrollado con 💙 para estudiantes de Uninorte<br>
 </div>
 
 """, unsafe_allow_html=True)
+
 
 
 
