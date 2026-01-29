@@ -643,6 +643,14 @@ Desarrollado con 💙 para estudiantes de Uninorte<br>
 
 """, unsafe_allow_html=True)
 
+# === FOOTER ===
+st.markdown("---")
+st.markdown("""
+<div style="text-align: center; color: #666; padding: 20px;">
+📧 <strong>Contacto:</strong> carlosdl@uninorte.edu.co<br>
+Desarrollado con 💙 para estudiantes de Uninorte 
+</div>
+""", unsafe_allow_html=True)
 
 
 
