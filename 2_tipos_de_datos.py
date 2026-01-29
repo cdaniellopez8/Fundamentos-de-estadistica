@@ -216,4 +216,14 @@ st.info("""
 💬 **Conclusión:**  
 Comprender el tipo y escala de los datos permite elegir las técnicas estadísticas adecuadas 
 y representar la información correctamente en gráficos o análisis posteriores.
+
 """)
+
+# === FOOTER ===
+st.markdown("---")
+st.markdown("""
+<div style="text-align: center; color: #666; padding: 20px;">
+📧 <strong>Contacto:</strong> carlosdl@uninorte.edu.co<br>
+Desarrollado con 💙 para estudiantes de Uninorte 
+</div>
+""", unsafe_allow_html=True)
