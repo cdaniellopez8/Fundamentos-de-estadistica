@@ -886,9 +886,14 @@ elif page == "❓ Cuestionario":
                 else:
                     st.error(f"❌ Incorrecto. {p['retro']}")
 
+# === FOOTER ===
 st.markdown("---")
-
-st.markdown("📧 **Contacto:** carlosdl@uninorte.edu.co")
+st.markdown("""
+<div style="text-align: center; color: #666; padding: 20px;">
+📧 <strong>Contacto:</strong> carlosdl@uninorte.edu.co<br>
+Desarrollado con 💙 para estudiantes de Uninorte 
+</div>
+""", unsafe_allow_html=True)
 
 
 
