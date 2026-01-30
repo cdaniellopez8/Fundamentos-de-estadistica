@@ -634,15 +634,6 @@ sino de desarrollar un **pensamiento analítico** que te acompañará toda tu vi
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("---")
-st.markdown("""
-<div style="text-align: center; color: #666; font-size: 14px;color: #424242;">
-Desarrollado con 💙 para estudiantes de Uninorte<br>
-¿Dudas o sugerencias? Escribe a <a href="mailto:carlosdl@uninorte.edu.co">carlosdl@uninorte.edu.co</a>
-</div>
-
-""", unsafe_allow_html=True)
-
 # === FOOTER ===
 st.markdown("---")
 st.markdown("""
@@ -651,6 +642,7 @@ st.markdown("""
 Desarrollado con 💙 para estudiantes de Uninorte 
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
