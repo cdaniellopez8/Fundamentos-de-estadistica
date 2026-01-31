@@ -281,7 +281,7 @@ elif page == "💯 Porcentajes":
     st.markdown("#### Fórmula General:")
     
     st.latex(r"\text{Proporción} = \frac{\text{Cantidad A}}{\text{Cantidad B}}")
-    st.caption("Podemos obtener un numero positivo cualquiera")
+    st.latex(r"\text{Comparamos dos cantidades}")
 
     st.markdown("")
     
@@ -890,6 +890,7 @@ st.markdown("""
 Desarrollado con 💙 para estudiantes de Uninorte 
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
