@@ -1110,7 +1110,7 @@ elif page == "8. Cuestionario Final":
          "retro": "La Ojiva es un gráfico acumulado. El último punto debe sumar el **100%** o **1.0** de los datos."},
          
         {"q": "Un dato con valor $20$ cae en el intervalo:",
-         "opts": ["[10 - 20)", "[20 - 30)", "(10 - 20]", "Solo en ninguno de los anteriores"],
+         "opts": ["[10 - 20)", "[20 - 30)", "(15 - 20)", "Solo en ninguno de los anteriores"],
          "resp": "[20 - 30)",
          "retro": "Por convención $(L_i, L_s]$, el dato $20$ no se incluye en $[10 - 20)$, pero sí en el siguiente intervalo $[20 - 30)$, ya que el límite inferior es inclusivo (corchete)."},
 
@@ -1323,3 +1323,4 @@ st.markdown("""
 Desarrollado con 💙 para estudiantes de Uninorte 
 </div>
 """, unsafe_allow_html=True)
+
