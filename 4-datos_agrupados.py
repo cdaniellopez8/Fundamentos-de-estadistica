@@ -205,7 +205,7 @@ if page == "1. Inicio":
 
     data_agrupar = pd.DataFrame({
         "Tipo de Dato": ["Nominal", "Ordinal (Baja)", "Discreta (Baja)", "Discreta (Alta)", "Continua"],
-        "Ejemplo": ["Género (M/F)", "Satisfacción (1-5)", "Hijos (0-4)", "Edad (18-65)", "Estatura (m)"],
+        "Ejemplo": ["Género (M/F)", "Satisfacción (1-5)", "Hijos (0-4)", "Libros en una biblioteca", "Estatura (m)"],
         "Valores Únicos": ["2", "5", "5", "47+", "Infinitos"],
         "¿Agrupar?": ["❌ NO", "❌ NO", "❌ NO", "✅ SÍ", "✅ SÍ"],
         "Razón": ["Pocas categorías", "Pocas categorías. Se mantiene el orden.", "Pocos valores únicos", "Muchos valores (poca repetición)", "Siempre continuo"],
@@ -1323,4 +1323,5 @@ st.markdown("""
 Desarrollado con 💙 para estudiantes de Uninorte 
 </div>
 """, unsafe_allow_html=True)
+
 
