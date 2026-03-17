@@ -852,15 +852,15 @@ elif page == "📊 Posición":
         # Q1
         st.markdown("### 📌 Primer cuartil (Q₁)")
 
-        st.latex(r"\text{Posición} = \frac{25}{100}(n+1)")
-        st.latex(r"\text{Posición} = \frac{25}{100}(11) = 2.75")
+        st.latex(r"\text{Posición} = \frac{25}{100}(n)")
+        st.latex(r"\text{Posición} = \frac{25}{100}(10) = 2.5")
         st.latex(r"x_2 = 45 \qquad x_3 = 50")
         st.latex(r"Q_1 = 45 + 0.75(50 - 45) = 48.75")
 
         # Q2
         st.markdown("### 📌 Segundo cuartil (Q₂ = Mediana)")
 
-        st.latex(r"\text{Posición} = \frac{50}{100}(11) = 5.5")
+        st.latex(r"\text{Posición} = \frac{50}{100}(10) = 5")
         st.latex(r"x_5 = 60 \qquad x_6 = 65")
         st.latex(r"Q_2 = 60 + 0.5(65 - 60) = 62.5")
 
