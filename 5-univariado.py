@@ -806,7 +806,7 @@ elif page == "📊 Posición":
  
         st.latex(r"\text{Posición} = \frac{n \cdot 1}{4} = \frac{10 \cdot 1}{4} = 2.5")
         st.markdown("La posición **2.5** no es entera → redondeamos hacia abajo → posición **2**.")
-        st.latex(r"Q_1 = x_3 = 50")
+        st.latex(r"Q_1 = x_2 = 45")
  
         # Q2
         st.markdown("### 📌 Segundo cuartil (Q₂ = Mediana)")
@@ -828,7 +828,7 @@ elif page == "📊 Posición":
  
         st.latex(r"\text{Posición} = \frac{n \cdot 3}{4} = \frac{10 \cdot 3}{4} = 7.5")
         st.markdown("La posición **7.5** no es entera → redondeamos hacia abajo → posición **7**.")
-        st.latex(r"Q_3 = x_8 = 75")
+        st.latex(r"Q_3 = x_7 = 70")
  
         st.success("""
         👉 Los cuartiles permiten saber:
