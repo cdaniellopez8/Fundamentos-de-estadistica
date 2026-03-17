@@ -744,138 +744,97 @@ elif page == "📊 Posición":
     # =========================================================
     with tabs[0]:
         st.markdown("## 📍 Percentiles")
-
+ 
         st.markdown("""
         Un **percentil Pₖ** es el valor que deja **k% de los datos por debajo**
         cuando los datos están **ordenados**.
         """)
-
+ 
         st.markdown("### 🎯 Ejemplo: calcular el percentil 55 (P₅₅)")
-
+ 
         # Paso 1
         st.markdown("### 1️⃣ Contar los datos")
         st.latex(r"n = 10")
-
+ 
         # Paso 2
         st.markdown("### 2️⃣ Calcular la posición del percentil")
         st.markdown("Usamos la siguiente fórmula:")
-
-        st.latex(r"\text{Posición} = \frac{k}{100}(n + 1)")
-        st.latex(r"\text{Posición} = \frac{55}{100}(10 + 1) = 6.05")
-
+ 
+        st.latex(r"\text{Posición} = \frac{n \cdot k}{100}")
+        st.latex(r"\text{Posición} = \frac{10 \cdot 55}{100} = 5.5")
+ 
         # Paso 3
-        st.markdown("### 3️⃣ Ubicar los valores vecinos")
+        st.markdown("### 3️⃣ Interpretar la posición")
         st.markdown("""
-        La posición **6.05** está:
-        - después del dato 6
-        - antes del dato 7
+        La posición **5.5** no es un número entero, así que **redondeamos hacia arriba** y tomamos el dato en la posición **6**.
         """)
-
-        st.latex(r"x_6 = 65 \qquad x_7 = 70")
-
-        # Paso 4
-        st.markdown("### 4️⃣ Interpolación (¿qué hacemos cuando la posición NO es entera?)")
-
-        st.markdown("""
-        La posición obtenida fue **6.05**. Esto significa que el percentil **NO cae exactamente sobre un dato**, sino **entre el dato 6 y el dato 7**.
-
-        👉 Por eso debemos **interpolar**.
-        """)
-
-        st.markdown("#### ¿Qué es interpolar?")
-        st.markdown("""
-        Interpolar significa **calcular un valor intermedio**, asumiendo que el cambio
-        entre dos datos consecutivos es **progresivo y uniforme**.
-        """)
-
-        st.markdown("#### 📍 Paso a paso de la interpolación")
-
-        st.markdown("""
-        1. **Identificamos los dos valores entre los que cae el percentil**
-        """)
-        st.latex(r"x_6 = 65 \qquad x_7 = 70")
-
-        st.markdown("""
-        2. **Tomamos la parte decimal de la posición**
-        """)
-        st.latex(r"6.05 \rightarrow \text{Parte Decimal = 0.05}")
-
-        st.markdown("""
-        Esto indica que el percentil está **al 5% del camino**
-        entre el dato 6 y el dato 7.
-        """)
-
-        st.markdown("""
-        3. **Calculamos la distancia entre los dos datos**
-        """)
-        st.latex(r"70 - 65 = 5")
-
-        st.markdown("""
-        4. **Calculamos cuánto avanzamos desde el dato inferior**
-        """)
-        st.latex(r"0.05 \times 5 = 0.25")
-
-        st.markdown("""
-        5. **Sumamos ese avance al valor inferior**
-        """)
-        st.latex(r"P_{55} = 65 + 0.25 = 65.25")
-
-        st.markdown("""
-        6. **Profe, quiero la formula y ya!** ok estimado si quieres interpolar rapidamente, la formula seria asi:
-        """)
-        st.latex(r"Interpolacion = \text{Valor menor} + (\text{Valor mayor} - \text{Valor menor})* \text{Parte Decimal}")
-
+ 
+        st.latex(r"x_6 = 65")
+        st.latex(r"P_{55} = 65")
+ 
         st.success("""
         ✅ **Conclusión**
-
-        El percentil 55 es **65.25**.
-
-        Esto significa que el **55% de los datos es menor o igual a 65.25**.
+ 
+        El percentil 55 es **65**.
+ 
+        Esto significa que el **55% de los datos es menor o igual a 65**.
         """)
-
+ 
         st.warning("""
-        ⚠️ Si la posición hubiera sido un número entero,
-        el percentil sería exactamente ese dato (sin interpolar).
+        ⚠️ Si la posición es un número entero exacto,
+        el percentil es el promedio entre ese dato y el siguiente.
         """)
-
+ 
     # =========================================================
     # TAB 2 — CUARTILES
     # =========================================================
     with tabs[1]:
         st.markdown("## 📦 Cuartiles")
-
+ 
         st.markdown("""
         Los **cuartiles** dividen los datos ordenados en **4 partes iguales**.
         Cada parte contiene el **25% de los datos**.
         """)
-
+ 
+        st.markdown("La fórmula general para ubicar cada cuartil es:")
+        st.latex(r"\text{Posición} = \frac{n \cdot Q}{4}")
+ 
+        st.markdown("Donde **Q** es el número del cuartil (1, 2 o 3) y **n** es la cantidad de datos.")
+ 
         # Q1
         st.markdown("### 📌 Primer cuartil (Q₁)")
-
-        st.latex(r"\text{Posición} = \frac{25}{100}(n)")
-        st.latex(r"\text{Posición} = \frac{25}{100}(10) = 2.5")
-        st.latex(r"x_2 = 45 \qquad x_3 = 50")
-        st.latex(r"Q_1 = 45 + 0.75(50 - 45) = 48.75")
-
+ 
+        st.latex(r"\text{Posición} = \frac{n \cdot 1}{4} = \frac{10 \cdot 1}{4} = 2.5")
+        st.markdown("La posición **2.5** no es entera → redondeamos hacia arriba → posición **3**.")
+        st.latex(r"Q_1 = x_3 = 50")
+ 
         # Q2
         st.markdown("### 📌 Segundo cuartil (Q₂ = Mediana)")
-
-        st.latex(r"\text{Posición} = \frac{50}{100}(10) = 5")
-        st.latex(r"x_5 = 60 \qquad x_6 = 65")
-        st.latex(r"Q_2 = 60 + 0.5(65 - 60) = 62.5")
-
+ 
+        st.markdown("""
+        El segundo cuartil **Q₂** coincide exactamente con la **mediana**.
+        La mediana es el valor que divide los datos ordenados en dos mitades iguales.
+        """)
+ 
+        st.latex(r"\text{Posición} = \frac{n \cdot 2}{4} = \frac{10 \cdot 2}{4} = 5")
+        st.markdown("""
+        La posición es un número entero exacto (**5**), por lo que la mediana es el promedio
+        entre el dato 5 y el dato 6.
+        """)
+        st.latex(r"Q_2 = \frac{x_5 + x_6}{2} = \frac{60 + 65}{2} = 62.5")
+ 
         # Q3
         st.markdown("### 📌 Tercer cuartil (Q₃)")
-
-        st.latex(r"\text{Posición} = \frac{75}{100}(11) = 8.25")
-        st.latex(r"x_8 = 75 \qquad x_9 = 80")
-        st.latex(r"Q_3 = 75 + 0.25(80 - 75) = 76.25")
-
+ 
+        st.latex(r"\text{Posición} = \frac{n \cdot 3}{4} = \frac{10 \cdot 3}{4} = 7.5")
+        st.markdown("La posición **7.5** no es entera → redondeamos hacia arriba → posición **8**.")
+        st.latex(r"Q_3 = x_8 = 75")
+ 
         st.success("""
         👉 Los cuartiles permiten saber:
-        - dónde empieza el 25% inferior
-        - dónde está la mitad
-        - dónde empieza el 25% superior
+        - Q₁: dónde termina el 25% inferior de los datos
+        - Q₂: dónde está la mitad (mediana)
+        - Q₃: dónde empieza el 25% superior de los datos
         """)
 
     # =========================================================
