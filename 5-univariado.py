@@ -766,18 +766,18 @@ elif page == "📊 Posición":
         # Paso 3
         st.markdown("### 3️⃣ Interpretar la posición")
         st.markdown("""
-        La posición **5.5** no es un número entero, así que **redondeamos hacia arriba** y tomamos el dato en la posición **6**.
+        La posición **5.5** no es un número entero, así que **redondeamos hacia abajo** y tomamos el dato en la posición **5**.
         """)
  
-        st.latex(r"x_6 = 65")
-        st.latex(r"P_{55} = 65")
+        st.latex(r"x_6 = 60")
+        st.latex(r"P_{55} = 60")
  
         st.success("""
         ✅ **Conclusión**
  
         El percentil 55 es **65**.
  
-        Esto significa que el **55% de los datos es menor o igual a 65**.
+        Esto significa que el **55% de los datos es menor o igual a 60**.
         """)
  
         st.warning("""
