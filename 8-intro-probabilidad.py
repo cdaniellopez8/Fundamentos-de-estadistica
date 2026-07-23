@@ -177,8 +177,7 @@ if page == "1. 🏠 Inicio":
         🎲 La probabilidad de obtener un 6 al lanzar un dado es $\\frac{1}{6} \\approx 0.167$
         
         🃏 La probabilidad de sacar un As de una baraja es $\\frac{4}{52} \\approx 0.077$
-        
-        ☂️ Si hay 70% de probabilidad de lluvia, significa que en 10 días similares, lloverá aproximadamente 7 veces
+    
         """)
     
     st.markdown("---")
